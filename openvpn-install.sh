@@ -312,6 +312,7 @@ function installQuestions() {
 	esac
 	echo ""
 	echo "What DNS resolvers do you want to use with the VPN?"
+	echo "   0) No resolvers"
 	echo "   1) Current system resolvers (from /etc/resolv.conf)"
 	echo "   2) Self-hosted DNS Resolver (Unbound)"
 	echo "   3) Cloudflare (Anycast: worldwide)"
@@ -899,6 +900,7 @@ tls-version-min 1.2
 tls-cipher $CC_CIPHER
 client-config-dir /etc/openvpn/ccd
 status /var/log/openvpn/status.log
+client-to-client
 verb 3" >>/etc/openvpn/server.conf
 
 	# Create client-config-dir dir
